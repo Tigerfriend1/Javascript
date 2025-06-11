@@ -30,7 +30,7 @@ let value8 = 1;
 value8 = "any value";
 let value9 = "greeting";
 if (typeof value9 === "string") {
-  value9 = value9.toUpperCase();
+    value9 = value9.toUpperCase();
 }
 console.log(`value1 : ${value1}`);
 console.log(`value2 : ${value2}`);
@@ -52,17 +52,17 @@ console.log(`list2 : ${list2}`);
 console.log(`t1 : ${t1}`);
 console.log("4) 함수 ______________________________");
 function plus(value1, value2) {
-  return value1 + value2;
+    return value1 + value2;
 }
 function greeting(name) {
-  return `Hello~ ${name}`;
+    return `Hello~ ${name}`;
 }
 function welcome() {
-  console.log("welcome void~");
+    console.log("welcome void~");
 }
 // never :함수가 정상종료가 아닌 예외가 발생하는 함수 반환 타입.
 function error(message) {
-  throw new Error(message);
+    throw new Error(message);
 }
 console.log(plus(1, 2));
 console.log(greeting("동글동글"));
@@ -70,42 +70,73 @@ welcome();
 //error("예외발생~~!!!");
 console.log("5) 클래스 ______________________________");
 class Person {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  }
-  get getName() {
-    return this.name;
-  }
-  hello() {
-    console.log(`${this.name}, ${this.age}`);
-  }
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    get getName() {
+        return this.name;
+    }
+    hello() {
+        console.log(`${this.name}, ${this.age}`);
+    }
 }
 const hong = new Person("글이동", 21);
 hong.hello();
 console.log("6) 상속 ______________________________");
 console.log("7) 인터페이스 ______________________________");
 const user1 = {
-  name: "동홍글",
-  age: 23,
+    name: "동홍글",
+    age: 23,
 };
 console.log(user1);
 class Car {
-  constructor(brand) {
-    this.brand = brand;
-  }
-  drive() {
-    console.log(`im ${this.brand}`);
-  }
+    constructor(brand) {
+        this.brand = brand;
+    }
+    drive() {
+        console.log(`im ${this.brand}`);
+    }
 }
 const bmw = new Car("BMW");
 bmw.drive();
 console.log("8) 제네릭 ______________________________");
 function identity(arg) {
-  return arg;
+    return arg;
 }
 const result1 = identity("hello");
 const result2 = identity(1);
 console.log(result1);
 console.log(result2);
 console.log("9) 기타타입 ______________________________");
+//유니언 타입 : 둘 이상의 타입을 가지는 타입
+let userid; //userid 값이 number 또는 string
+userid = 100;
+console.log(`userid:${userid}`);
+userid = "asb12";
+console.log(`userid:${userid}`);
+let weight = 70;
+let height = 1.75;
+console.log(`weight: ${weight}`);
+console.log(`height: ${height}`);
+// 타입 가드
+function isNumber(x) {
+    return typeof x === "number";
+}
+console.log(`isNumber: ${isNumber(1)}`);
+console.log(`isNumber: ${isNumber("number")}`);
+// Nullable
+let var1 = "hello";
+//var1 = null;
+let var2 = "welcome";
+console.log(`var2:${var2}`);
+var2 = null;
+console.log(`var2:${var2}`);
+let text1 = "hello";
+let text2 = null;
+let text3 = undefined;
+let text4 = "MustBeString~";
+console.log(`text1 : ${text1}`);
+console.log(`text2 : ${text2}`);
+console.log(`text3 : ${text3}`);
+console.log(`text4 : ${text4}`);

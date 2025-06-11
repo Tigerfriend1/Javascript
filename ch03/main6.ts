@@ -139,3 +139,52 @@ console.log(result1);
 console.log(result2);
 
 console.log("9) 기타타입 ______________________________");
+
+//유니언 타입 : 둘 이상의 타입을 가지는 타입
+let userid: number | string; //userid 값이 number 또는 string
+
+userid = 100;
+console.log(`userid:${userid}`);
+userid = "asb12";
+console.log(`userid:${userid}`);
+
+//타입 별칭
+type kilogram = number;
+type meter = number;
+
+let weight: kilogram = 70;
+let height: meter = 1.75;
+console.log(`weight: ${weight}`);
+console.log(`height: ${height}`);
+
+// 타입 가드
+function isNumber(x: any): x is number {
+  return typeof x === "number";
+}
+
+console.log(`isNumber: ${isNumber(1)}`);
+console.log(`isNumber: ${isNumber("number")}`);
+
+// Nullable
+let var1: string = "hello";
+//var1 = null;
+
+let var2: string | null = "welcome";
+console.log(`var2:${var2}`);
+
+var2 = null;
+console.log(`var2:${var2}`);
+
+//조건부 타입
+type MaybeString = string | null | undefined;
+type MustBeString = NonNullable<MaybeString>; // -> string
+
+let text1: MaybeString = "hello";
+let text2: MaybeString = null;
+let text3: MaybeString = undefined;
+let text4: MustBeString = "MustBeString~";
+
+console.log(`text1 : ${text1}`);
+console.log(`text2 : ${text2}`);
+console.log(`text3 : ${text3}`);
+console.log(`text4 : ${text4}`);
