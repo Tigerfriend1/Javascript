@@ -2,9 +2,11 @@
   "name": "bundle",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "test": "jest --verbose"
   },
   "devDependencies": {
+    "jest": "^30.0.0",
     "webpack": "^5.0.0",
     "webpack-cli": "^5.0.0"
   }
