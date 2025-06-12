@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1749697738380" clover="3.2.0">
+  <project timestamp="1749697738380" name="All files">
+    <metrics statements="24" coveredstatements="23" conditionals="6" coveredconditionals="6" methods="12" coveredmethods="11" elements="42" coveredelements="40" complexity="0" loc="24" ncloc="24" packages="1" files="2" classes="2"/>
+    <file name="UserService.js" path="C:\Users\busan\Desktop\workspace\Javascript\ch04\modules\UserService.js">
+      <metrics statements="18" coveredstatements="18" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7"/>
+      <line num="3" count="8" type="stmt"/>
+      <line num="8" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="11" count="4" type="stmt"/>
+      <line num="12" count="4" type="stmt"/>
+      <line num="13" count="4" type="stmt"/>
+      <line num="18" count="5" type="stmt"/>
+      <line num="23" count="2" type="stmt"/>
+      <line num="24" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="33" count="2" type="stmt"/>
+      <line num="34" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="38" count="1" type="stmt"/>
+      <line num="42" count="1" type="stmt"/>
+    </file>
+    <file name="math.js" path="C:\Users\busan\Desktop\workspace\Javascript\ch04\modules\math.js">
+      <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
+      <line num="2" count="6" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="18" count="0" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
