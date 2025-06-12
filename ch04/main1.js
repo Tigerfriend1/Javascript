@@ -5,10 +5,10 @@
 */
 
 //ES6 Modules
-import { PI, hello } from "./modules/module1.js";
+// import { PI, hello } from "./modules/module1.js";
 
-console.log(PI);
-console.log(hello("동홍글"));
+// console.log(PI);
+// console.log(hello("동홍글"));
 
 // CommonJS (브라우저 지원X, node.js에서만 지원)
 const module2 = require("./modules/module2.js");
