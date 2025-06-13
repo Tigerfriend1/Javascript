@@ -28,5 +28,83 @@
       const end = performance.now();
       console.log(`걸린시간 : ${end - start}ms`);
     </script>
+
+    <h4>프로파일링 실습</h4>
+    <button id="add">추가</button>
+    <div id="container"></div>
+    <script>
+      const btnAdd = document.getElementById("add");
+      const container = document.getElementById("container");
+
+      btnAdd.addEventListener("click", function () {
+        // Fragment를 활용한 DOM 성능 최적화
+        const fragment = document.createDocumentFragment();
+
+        for (let i = 0; i < 100_000; i++) {
+          const div = document.createElement("div");
+          div.textContent = `item-${i}`;
+          fragment.appendChild(div);
+        }
+        container.appendChild(fragment);
+      });
+    </script>
+
+    <h4>디바운스</h4>
+    <input type="text" id="search" placeholder="검색 키워드" />
+    <p id="result"></p>
+    <script>
+      function debounce(callback, delay) {
+        let timeoutId;
+        return function (...args) {
+          // 참고) 클로저
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => {
+            callback(...args);
+          }, delay);
+        };
+      }
+
+      const search = document.getElementById("search");
+      const result = document.getElementById("result");
+
+      // 500ms 동안 값 입력이 없을 때만 input : 최적화
+      search.addEventListener(
+        "input",
+        debounce(function (e) {
+          result.textContent = `Searching for : ${e.target.value}`;
+        }, 500)
+      );
+    </script>
+
+    <h4>쓰로틀링</h4>
+    <button id="btnClick">클릭</button>
+    <p id="count"></p>
+    <script>
+      function throttle(callback, delay) {
+        let timeoutId;
+        return function (...args) {
+          // 참고) 클로저
+
+          if (!timeoutId) {
+            timeoutId = setTimeout(() => {
+              callback(...args);
+              timeoutId = null;
+            }, delay);
+          }
+        };
+      }
+
+      const btnClick = document.getElementById("btnClick");
+      const count = document.getElementById("count");
+
+      let countNum = 0;
+      btnClick.addEventListener(
+        "click",
+        throttle(function () {
+          countNum++;
+          count.textContent = countNum;
+        }, 500)
+      );
+    </script>
   </body>
 </html>
