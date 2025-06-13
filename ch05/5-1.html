@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5-1</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.6/purify.min.js"
+      integrity="sha512-YlctBG9PGZIhh9keoqI3eZkQM9T8QUbiBi7qNYAO/TUEo8jqWX5pLp5+x1cKRQDRzJ/lyGyJ9WUVNIRduxIIFw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <h3>1.XSS 실습</h3>
+    <form id="form">
+      <input type="text" id="comment" placeholder="댓글입력" />
+      <button type="submit">등록</button>
+    </form>
+    <div id="comments"></div>
+    <script>
+      const form = document.getElementById("form");
+      const input = document.getElementById("comment");
+      const comments = document.getElementById("comments");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // 폼 제출 방지
+        const value = input.value;
+
+        // XSS 취약점: 사용자 입력을 그대로 HTML에 삽입
+        // ex) <img src = "X" onerror="alert('hihi)"/> 브라우저에서 해당내용 입력 후 등록 시 바로 반영됨
+        // XSS 방어핵심은 사용자 입력을 HTML에 삽입할 때 반드시 이스케이프 처리해야 함. 혹은 검증 필요.
+        //comments.innerHTML += `<p>${value}</p>`;
+
+        // 해결방법1 = text로 입력
+        const p = document.createElement("p");
+        p.textContent = value; // textContent를 사용하여 XSS 공격 방지
+        //comments.appendChild(p);
+
+        // 해결방법2 = 외부 라이브러리를 이용한 입력데이터 소독
+        const cleanHTML = DOMPurify.sanitize(value);
+        comments.innerHTML += cleanHTML;
+      });
+    </script>
+  </body>
+</html>
