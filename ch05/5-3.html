@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5-3</title>
+  </head>
+  <body>
+    <h3>3. 정규표현식</h3>
+    <script>
+      // 1. 정규표현식 생성
+      const regex1 = /abc/gi; // 바로 쓰는 방식
+      const regex2 = new RegExp("abc", "gi"); //객체를 이용하는 방식
+
+      console.log(`regex1 : ${regex1}`);
+      console.log(`regex2 : ${regex2}`);
+
+      // 2. 정규표현식 메서드
+      const str = "Hello world, Hello Javascript!, GOODBYE~~";
+      const regex3 = /hello/i; //hello 패턴이 속해 있는지. i : 대소문자 ignore 플래그
+
+      // test() : 문자열이 정규포현식과 일치 여부 검사
+      console.log(`test()-------------------`);
+      console.log(regex3.test(str)); //true 출력.
+
+      const regex4 = /good/i;
+      console.log(regex4.test(str)); //true 출력.
+
+      // match() : 문자열 안에서 정규표현식과 일치하는 값 추출
+      const text = "apple, banana, Apple";
+      const pattern1 = /apple/gi; //g : (글로벌) 전체 문자열에서 찾는 것. 없으면 첫번째에서만 찾음.
+
+      console.log("match()--------------------");
+      console.log(text.match(pattern1));
+
+      const pattern2 = /banana/g;
+      console.log(text.match(pattern2));
+
+      // 3. 정규표현식 메타문자
+      const reg1 = /^[0-9]+$/; // 숫자
+      const reg2 = /^[1-9]\d*/; // 숫자(양수)
+      const reg3 = /^\-[1-9]\d*/; // 숫자(음수)
+      const reg4 = /^[a-zA-Z]+$/; // 영문자
+      const reg5 = /^[a-zA-Z0-9]+$/; // 숫자와 영문자
+      const reg6 = /^[가-힣]+$/; // 한글문자
+      const reg7 = /^.{5,10}$/; // 문자열 길이가 5~10
+
+      document.write("reg1 test : " + reg1.test("apple") + "<br>");
+      document.write("reg1 test : " + reg1.test("123") + "<br>");
+      document.write("reg2 test : " + reg2.test("10") + "<br>");
+      document.write("reg2 test : " + reg2.test("-10") + "<br>");
+      document.write("reg3 test : " + reg3.test("-10") + "<br>");
+      document.write("reg4 test : " + reg4.test("apple") + "<br>");
+      document.write("reg4 test : " + reg4.test("apple123") + "<br>");
+      document.write("reg4 test : " + reg4.test("Apple") + "<br>");
+      document.write("reg5 test : " + reg5.test("Apple123") + "<br>");
+      document.write("reg6 test : " + reg6.test("홍길동") + "<br>");
+      document.write("reg6 test : " + reg6.test("홍길동123") + "<br>");
+      document.write("reg7 test : " + reg7.test("abcd") + "<br>");
+      document.write("reg7 test : " + reg7.test("abcde") + "<br>");
+      document.write("reg7 test : " + reg7.test("abcd123") + "<br>");
+
+      // 4. 자주 사용하는 정규표현식
+      const regEmail = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+      const regPass =
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
+      const regHp = /^\d{3}-\d{3,4}-\d{4}$/;
+
+      document.write("regEmail : " + regEmail.test("홍길동@한국.com") + "<br>");
+      document.write(
+        "regEmail : " + regEmail.test("hong1234@korea.com") + "<br>"
+      );
+      document.write("regPass : " + regPass.test("Pass1234!@#") + "<br>");
+      document.write("regHp : " + regHp.test("010-123-1001") + "<br>");
+    </script>
+  </body>
+</html>
