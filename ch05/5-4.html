@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5-4</title>
+  </head>
+  <body>
+    <h3>4. 성능측정과 프로파일링</h3>
+    <script>
+      //  처리시간 측정
+      function heavyTask() {
+        const arr = [];
+        for (let i = 0; i <= 1_000_000_0; i++) {
+          arr.push(Math.sqrt(i));
+        }
+        return arr;
+      }
+
+      // 기본 시간 측정
+      console.time("heavyTask");
+      heavyTask();
+      console.timeEnd("heavyTask");
+
+      // performance 시간 측정
+      const start = performance.now();
+      heavyTask();
+      const end = performance.now();
+      console.log(`걸린시간 : ${end - start}ms`);
+    </script>
+  </body>
+</html>
