@@ -1,7 +1,27 @@
 {
-    "todos": [
-        {"id": "1", "title": "코딩하기", "completed": false},
-        {"id": "2", "title": "운동하기", "completed": false},
-        {"id": "3", "title": "청소하기", "completed": true}
-    ]
+  "todos": [
+    {
+      "id": "1",
+      "title": "코딩하기",
+      "completed": false
+    },
+    {
+      "id": "2",
+      "title": "운동하기",
+      "completed": false
+    },
+    {
+      "id": "3",
+      "title": "청소하기",
+      "completed": true
+    }
+  ],
+  "users": [
+    {
+      "id": "8810",
+      "name": "김유신",
+      "birth": "2025-06-25",
+      "age": "12"
+    }
+  ]
 }
